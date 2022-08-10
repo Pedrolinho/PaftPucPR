@@ -24,9 +24,7 @@ class App(customtkinter.CTk):
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        self.frame_left = customtkinter.CTkFrame(master=self,
-                                                 width=180,
-                                                 corner_radius=0)
+        self.frame_left = customtkinter.CTkFrame(master=self, width=180, corner_radius=0)
         self.frame_left.grid(row=0, column=0, sticky="nswe")
 
         self.frame_right = customtkinter.CTkFrame(master=self)
