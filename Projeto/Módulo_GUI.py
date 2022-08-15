@@ -1,4 +1,5 @@
 import ctypes as ct
+from tkinter import *
 
 def dark_title_bar(window):
     window.update()
@@ -12,11 +13,11 @@ def dark_title_bar(window):
     set_window_attribute(hwnd, rendering_policy, ct.byref(value), ct.sizeof(value))  
 
 def AtivarAba(aba):
-        if aba == 'dashboard':
+        if aba == 'portfolio':
             transacoes = False
             cotacoes = False
             dashboard = True
-            print('Dashboard foi acessado')
+            print('Portfólio foi acessado')
         elif aba == 'transacoes':
             dashboard = False
             cotacoes = False
@@ -26,4 +27,4 @@ def AtivarAba(aba):
             dashboard = False
             transacoes = False
             cotacoes = True   
-            print('Cotações foi acessado')  
+            print('Cotações foi acessado')
