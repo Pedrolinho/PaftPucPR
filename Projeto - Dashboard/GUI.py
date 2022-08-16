@@ -99,6 +99,7 @@ class App(Tk):
         self.layout = Frame(self, width=App.D_LAYOUT[0], height=App.D_LAYOUT[1], bg=App.cinza_escuro)
         
         self.label_1 = Label(self.layout, width=App.D_LAYOUT[0], height=App.D_LAYOUT[1], image=self.img_layout_cotacoes, border=0).place(x=0,y=0)
+
         # Cryptos
         self.btc   = Label(self.layout, text = f'{App.crypto_list[0][1]:,.5f}'.replace('.',','), bg=App.cinza_medio, fg=App.cinza_escuro, font=('verdana', '16')).place(x=315, y=101)
         self.eth   = Label(self.layout, text = f'{App.crypto_list[1][1]:,.5f}'.replace('.',','), bg=App.cinza_medio, fg=App.cinza_escuro, font=('verdana', '16')).place(x=315, y=134)
@@ -114,7 +115,8 @@ class App(Tk):
         self.button_1 = Button(self.layout, image=self.img_atualizar_cot, command=lambda: App.AtualizarCot(self),  bg=App.cinza_escuro, anchor=CENTER, bd=0, activebackground=App.cinza_escuro).place(x=206, y=460)
         self.layout.grid(row=0, column=1, sticky=NSEW)
 
-    def new_cotacoes(self):
+    # Repetição da Função Cotações ao atualizar os valores
+    def new_cotacoes(self): 
         self.layout = Frame(self, width=App.D_LAYOUT[0], height=App.D_LAYOUT[1], bg=App.cinza_escuro)
         
         self.label_1 = Label(self.layout, width=App.D_LAYOUT[0], height=App.D_LAYOUT[1], image=self.img_layout_cotacoes, border=0).place(x=0,y=0)
