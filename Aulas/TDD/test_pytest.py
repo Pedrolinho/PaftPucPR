@@ -111,3 +111,8 @@ def test_Deve_Mostrar_Extrato_Quando_Chamar_Função():
     teste = pd.DataFrame(infos, columns=['DATA', 'QUANTIA', 'SALDO'])  
 
     assert Conta.imprimir().equals(teste) == True
+
+
+def test_Deve_Falhar_Quando_Quantia_For_String():
+    assert Conta.depositar('insco') == 'Entrada inválida'
+

@@ -12,3 +12,10 @@ for caractere in ola:
         y += 1
 
 print(f'{x}, {y}')
+
+numero = 838
+
+print(type(numero))
+
+if type(numero) == int:
+    print('ola')
