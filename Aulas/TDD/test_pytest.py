@@ -1,6 +1,7 @@
 from Exercício_1 import *
 from Exercício_2 import *
 from Exercício_3 import *
+from Exercício_5 import *
 
 # Exercício 1 - Exemplo
 
@@ -74,3 +75,39 @@ def test_Deve_Mostrar_Multiplas_Falhas():
 
 def test_Deve_Falhar_Quando_Maiusculas_Menor_1():
     assert 'A senha deve conter pelo menos uma letra maiúscula' in ValidadorDeSenha('udhusd')
+
+
+# Exercício 5 (Final) - Banco
+
+def test_Deve_Mostrar_1000_Quando_Adicionar_1000():
+    assert Conta.depositar(int(100)) == 'R$110,00 foi depositado ao saldo'
+
+
+def test_Deve_Falhar_Quando_Adicionar_Número_Negativo():
+    assert Conta.depositar(int(-3)) == 'Não é possível depositar um valor negativo'
+
+
+def test_Deve_Falhar_Quando_Adicionar_0():
+    assert Conta.depositar(int(0))  == 'Nenhum valor está sendo depositado'
+
+
+def test_Deve_Falhar_Quando_Sacar_Mais_Que_O_Saldo():
+    assert Conta.sacar(int(3535)) == 'Não há saldo suficiente para saque'
+
+
+def test_Deve_Falhar_Quando_Sacar_Número_Negativo():
+    assert Conta.sacar(int(-376558678575)) == 'Não é possível sacar um valor negativo'
+
+
+def test_Deve_Mostrar_5_Quando_Sacar_5():
+    assert Conta.sacar(int(5)) == 'R$5,00 foi retirado do saldo'
+
+
+def test_Deve_Mostrar_Extrato_Quando_Chamar_Função():
+    DATA = ['23/08/2022', '23/08/2022', '23/08/2022', '23/08/2022', '23/08/2022']
+    QUANTIA = ['+R$100,00', '-R$5,00', '+R$100,00', '+R$100,00', '-R$50,00']
+    SALDO = ['R$110,00', 'R$105,00', 'R$205,00', 'R$305,00', 'R$255,00']
+    infos = list(zip(DATA, QUANTIA, SALDO))
+    teste = pd.DataFrame(infos, columns=['DATA', 'QUANTIA', 'SALDO'])  
+
+    assert Conta.imprimir().equals(teste) == True
