@@ -104,9 +104,9 @@ def test_Deve_Mostrar_5_Quando_Sacar_5():
 
 
 def test_Deve_Mostrar_Extrato_Quando_Chamar_Função():
-    DATA = ['23/08/2022', '23/08/2022', '23/08/2022', '23/08/2022', '23/08/2022']
-    QUANTIA = ['+R$100,00', '-R$5,00', '+R$100,00', '+R$100,00', '-R$50,00']
-    SALDO = ['R$110,00', 'R$105,00', 'R$205,00', 'R$305,00', 'R$255,00']
+    DATA = ['23/08/2022', '23/08/2022', '23/08/2022', '23/08/2022']
+    QUANTIA = ['-R$5,00', '+R$100,00', '+R$100,00', '-R$50,00']
+    SALDO = ['R$5,00', 'R$105,00', 'R$205,00', 'R$155,00']
     infos = list(zip(DATA, QUANTIA, SALDO))
     teste = pd.DataFrame(infos, columns=['DATA', 'QUANTIA', 'SALDO'])  
 
