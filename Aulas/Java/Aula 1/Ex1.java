@@ -11,7 +11,7 @@ public class Ex1{
         int [] valores = new int [numero];
 
         for(int x=0; x < numero; x = x + 1){
-            System.out.println("Número " + x);
+            System.out.println("Número " + (x+1));
 
             valores[x] = Integer.parseInt(in.nextLine());
             if(valores[x] > maior){
