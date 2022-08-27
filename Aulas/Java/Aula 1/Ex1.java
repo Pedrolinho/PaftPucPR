@@ -6,11 +6,13 @@ public class Ex1{
     public static void main(String[] args){
         System.out.println("Digite uma quantidade de números:");
         int numero = Integer.parseInt(in.nextLine());
-        int menor = 1000000000;
-        int maior = 0;
+        int menor = Integer.MAX_VALUE;
+        int maior = Integer.MIN_VALUE;
         int [] valores = new int [numero];
 
         for(int x=0; x < numero; x = x + 1){
+            System.out.println("Número " + x);
+
             valores[x] = Integer.parseInt(in.nextLine());
             if(valores[x] > maior){
                 maior = valores[x];
@@ -20,6 +22,6 @@ public class Ex1{
             }
         }
         System.out.println("Maior: " + maior);
-        System.out.println("Menor " + menor);
+        System.out.println("Menor: " + menor);
     }
 }

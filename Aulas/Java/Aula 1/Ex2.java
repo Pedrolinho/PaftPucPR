@@ -4,8 +4,8 @@ public class Ex2{
     static Scanner in = new Scanner(System.in);
 
     static String localizarExtremos(int[] valores, int numero){
-        int menor = 1000000000;
-        int maior = 0;
+        int menor = Integer.MAX_VALUE;
+        int maior = Integer.MIN_VALUE;
 
         for(int x=0; x < numero; x = x + 1){
             if(valores[x] > maior){
