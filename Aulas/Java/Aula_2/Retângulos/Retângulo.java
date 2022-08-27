@@ -1,4 +1,4 @@
-package PaftPucPR.Aulas.Java.Aula_2.Ex1;
+package PaftPucPR.Aulas.Java.Aula_2.Retângulos;
 
 public class Retângulo {
     double altura;

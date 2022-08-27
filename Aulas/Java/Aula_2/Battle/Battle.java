@@ -2,27 +2,23 @@ package PaftPucPR.Aulas.Java.Aula_2.Battle;
 
 public class Battle {
     public static void main(String[] args){
-        Char hero = new Char();
-        hero.name = "Sir Gallahad";
-        hero.skill = 14;
-        hero.defense = 5;
-        hero.life = 80;
-        
+        Char hero = new Char("Sir Gallahad", 14, 5, 80);
+
         Char monster = Char.createGoblin();
 
-        System.out.println(hero.name + " versus " + monster.name);
+        System.out.println(hero.getName() + " versus " + monster.getName());
         System.out.println();
 
-        while(hero.life > 0 && monster.life > 0){
+        while(hero.isAlive() && monster.isAlive()){
         hero.attack(monster);
+        if(monster.getLife() <=0){
+            break;
+        }
         monster.attack(hero);
         System.out.println();
         }
-        if(hero.life > 0){
-            System.out.printf("%s wins!\n", hero.name, hero.life);
-        }
-        else{
-            System.out.printf("%s wins!\n", monster.name, monster.life);
-        }
+
+        Char winner = hero.isAlive() ? hero : monster;
+        System.out.printf("%s wins! Life: %d.\n", winner.getName(), winner.getLife());
     }
 }
