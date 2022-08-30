@@ -17,7 +17,7 @@ public class Semáforo {
     }
 
     // Métodos
-    void PróximaCor(){
+    public void PróximaCor(){
         if(getCor() == Semáforo.vermelho){
             this.cor = verde;
             return;
@@ -33,7 +33,7 @@ public class Semáforo {
     }
 
 
-    void setCor(int cor){
+    public void setCor(int cor){
         if(cor == verde){
             this.cor = verde;
         }
@@ -49,12 +49,12 @@ public class Semáforo {
     }
 
 
-    int getCor(){
+    private int getCor(){
         return cor;
     }
 
 
-    String getColorText(){
+    public String getColorText(){
         String ColorText = null;
 
         if(getCor() == 0){
