@@ -7,6 +7,7 @@ public class Char {
     private int skill;
     private int defense;
     private int life;
+    private final int max_life;
 
     private Weapon weapon = Weapon.FISTS;
 
@@ -32,6 +33,7 @@ public class Char {
         this.skill = skill;
         this.defense = defense;
         this.life = life;
+        this.max_life = this.life;
     }
 
     public Char(int skill, int defense, int life) {
@@ -108,7 +110,7 @@ public class Char {
     }
     public void heal() {
         DiceRoll Gole = new DiceRoll(1, 6);
-        int gole = Gole.roll();
+        
     }
 
     public boolean isAlive() {
