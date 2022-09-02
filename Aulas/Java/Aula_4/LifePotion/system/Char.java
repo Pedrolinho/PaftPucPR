@@ -4,16 +4,19 @@ import PaftPucPR.Aulas.Java.Aula_4.LifePotion.items.Potion;
 import PaftPucPR.Aulas.Java.Aula_4.LifePotion.items.Weapon;
 
 public class Char {
+    // Atributos
     private String name;
     private int skill;
     private int defense;
     private int life;
     private int max_life;
-    private int potion;
-
+    private Potion potion;
+    private int quantityPotions;
     private Weapon weapon = Weapon.FISTS;
 
-    public Char(String name, int skill, int defense, int life, int potion) {
+    // Construtores
+    public Char(String name, int skill, int defense, int life, Potion potion) {
+        // Erros
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be blank!");
         }
@@ -31,19 +34,21 @@ public class Char {
         }
 
         this.name = name;
-
         this.skill = skill;
         this.defense = defense;
         this.life = life;
         this.max_life = life;
         this.potion = potion;
+        this.quantityPotions = potion.getQuantity();
     }
 
-    public Char(int skill, int defense, int life, int potion) {
+    public Char(int skill, int defense, int life, Potion potion) {
         this("John Doe", skill, defense, life, potion);
         this.max_life = life;
+        this.quantityPotions = potion.getQuantity();
     }
 
+    // Criador de Goblin
     public static Char createGoblin() {
         String name =
             DiceRoll.roll("Spitz", "Gob", "Uga", "Dandar") + " " +
@@ -51,11 +56,12 @@ public class Char {
         int skill = new DiceRoll(1, 10, 5).roll();
         int defense = new DiceRoll(1, 8, 3).roll();
         int life = new DiceRoll(2, 10, 30).roll();
-        int potion = 1;
+        Potion potion = new Potion(1);
 
         return new Char(name, skill, defense, life, potion);
     }
 
+    // Getters 
     public String getName() {
         return name;
     }
@@ -67,18 +73,27 @@ public class Char {
     public int getDefense() {
         return defense;
     }
+    public int getLife() {
+                return life;
+            }
 
     public double getMax_life() {
         return max_life;
     }
 
-    public int getPotion() {
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public Potion getPotion() {
         return potion;
     }
 
-    public int getLife() {
-            return life;
-        }
+    public int getQuantityPotions() {
+        return quantityPotions;
+    }
+
+    // Setters
     public void setDefense(int defense) {
         if (defense <= 0) {
             throw new IllegalArgumentException("Invalid defense: " + skill);
@@ -87,6 +102,12 @@ public class Char {
         this.defense = defense;
     }
 
+    public void setWeapon(Weapon weapon) {
+        if (weapon == null) weapon = Weapon.FISTS;
+        this.weapon = weapon;
+    }
+
+    // Ações
     public void attack(Char enemy) {
         if (enemy == null) {
             throw new IllegalArgumentException("You must provide an enemy!");
@@ -120,7 +141,8 @@ public class Char {
         System.out.printf("%s took %d damage. Life: %d%n",
                 name, damage, life);
     }
-    public void heal() {
+
+    public void heal(Potion potion) {
         DiceRoll Heal = new DiceRoll(1, 6);
         int gole = Heal.roll();
         
@@ -128,15 +150,16 @@ public class Char {
             gole = max_life - life;
             
         }
-        if(Potion.getLife_points() < gole){
-            gole = Potion.getLife_points();
+        if(potion.getLife_points() < gole){
+            gole = potion.getLife_points();
         }
 
         life += gole;
-        Potion.setLife_points(Potion.getLife_points() - gole);
+        potion.setLife_points(potion.getLife_points() - gole);
 
-        if(Potion.getLife_points() <= 0){
-            potion -= 1;
+        if(potion.getLife_points() <= 0){
+            quantityPotions -= 1;
+            potion.setLife_points(10);
         }
 
         System.out.printf("%s%s healed %d of his own life. Life: %d\n%s", ConsoleColors.YELLOW, name, gole, life, ConsoleColors.RESET);
@@ -144,24 +167,5 @@ public class Char {
 
     public boolean isAlive() {
         return life > 0;
-    }
-
-    /**
-     * @return a arma do personagem. Caso ele esteja desarmado, retorna os punhos.
-     * @see Weapon#FISTS
-     */
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    /**
-     * Substitui a arma do personagem.
-     * @param weapon A nova arma. Nulo se estiver desarmado.
-     *               Neste caso, a arma será substituida pelos punhos.
-     * @see Weapon#FISTS
-     */
-    public void setWeapon(Weapon weapon) {
-        if (weapon == null) weapon = Weapon.FISTS;
-        this.weapon = weapon;
     }
 }
