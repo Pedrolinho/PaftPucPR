@@ -1,6 +1,6 @@
-package PaftPucPR.Aulas.Java.Aula_4.items;
+package PaftPucPR.Aulas.Java.Aula_4.LifePotion.items;
 
-import PaftPucPR.Aulas.Java.Aula_4.system.DiceRoll;
+import PaftPucPR.Aulas.Java.Aula_4.LifePotion.system.DiceRoll;
 
 public class Weapon {
     public static final Weapon FISTS = new Weapon("Fists", new DiceRoll(0, 1, 1));

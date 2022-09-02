@@ -1,4 +1,4 @@
-package PaftPucPR.Aulas.Java.Aula_4.system;
+package PaftPucPR.Aulas.Java.Aula_4.LifePotion.system;
 
 import java.util.Random;
 

@@ -1,17 +1,19 @@
-package PaftPucPR.Aulas.Java.Aula_4.system;
+package PaftPucPR.Aulas.Java.Aula_4.LifePotion.system;
 
-import PaftPucPR.Aulas.Java.Aula_4.items.Weapon;
+import PaftPucPR.Aulas.Java.Aula_4.LifePotion.items.Potion;
+import PaftPucPR.Aulas.Java.Aula_4.LifePotion.items.Weapon;
 
 public class Char {
     private String name;
     private int skill;
     private int defense;
     private int life;
-    private final int max_life;
+    private int max_life;
+    private int potion;
 
     private Weapon weapon = Weapon.FISTS;
 
-    public Char(String name, int skill, int defense, int life) {
+    public Char(String name, int skill, int defense, int life, int potion) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name cannot be blank!");
         }
@@ -33,11 +35,13 @@ public class Char {
         this.skill = skill;
         this.defense = defense;
         this.life = life;
-        this.max_life = this.life;
+        this.max_life = life;
+        this.potion = potion;
     }
 
-    public Char(int skill, int defense, int life) {
-        this("John Doe", skill, defense, life);
+    public Char(int skill, int defense, int life, int potion) {
+        this("John Doe", skill, defense, life, potion);
+        this.max_life = life;
     }
 
     public static Char createGoblin() {
@@ -47,8 +51,9 @@ public class Char {
         int skill = new DiceRoll(1, 10, 5).roll();
         int defense = new DiceRoll(1, 8, 3).roll();
         int life = new DiceRoll(2, 10, 30).roll();
+        int potion = 1;
 
-        return new Char(name, skill, defense, life);
+        return new Char(name, skill, defense, life, potion);
     }
 
     public String getName() {
@@ -63,16 +68,23 @@ public class Char {
         return defense;
     }
 
+    public double getMax_life() {
+        return max_life;
+    }
+
+    public int getPotion() {
+        return potion;
+    }
+
+    public int getLife() {
+            return life;
+        }
     public void setDefense(int defense) {
         if (defense <= 0) {
             throw new IllegalArgumentException("Invalid defense: " + skill);
         }
 
         this.defense = defense;
-    }
-
-    public int getLife() {
-        return life;
     }
 
     public void attack(Char enemy) {
@@ -85,16 +97,16 @@ public class Char {
 
         String weaponName = weapon.getName();
 
-        System.out.printf("%s attacks %s with %s: ", name, enemy.name, weaponName);
+        System.out.printf("%s attacks %s with %s%s%s: ", name, enemy.name, ConsoleColors.BLUE, weaponName, ConsoleColors.RESET);
 
         int roll = new DiceRoll(3, 6).roll();
 
         int goal = skill - enemy.defense;
         if (roll <= goal) {
-            System.out.println("HIT!");
+            System.out.printf("%sHIT!%s\n", ConsoleColors.GREEN, ConsoleColors.RESET);
             enemy.takeDamage(weapon.roll());
         } else {
-            System.out.println("MISS!");
+            System.out.printf("%sMISS!%s\n", ConsoleColors.RED, ConsoleColors.RESET);
         }
     }
     public void takeDamage(int damage) {
@@ -109,8 +121,25 @@ public class Char {
                 name, damage, life);
     }
     public void heal() {
-        DiceRoll Gole = new DiceRoll(1, 6);
+        DiceRoll Heal = new DiceRoll(1, 6);
+        int gole = Heal.roll();
         
+        if((max_life - life) < gole){
+            gole = max_life - life;
+            
+        }
+        if(Potion.getLife_points() < gole){
+            gole = Potion.getLife_points();
+        }
+
+        life += gole;
+        Potion.setLife_points(Potion.getLife_points() - gole);
+
+        if(Potion.getLife_points() <= 0){
+            potion -= 1;
+        }
+
+        System.out.printf("%s%s healed %d of his own life. Life: %d\n%s", ConsoleColors.YELLOW, name, gole, life, ConsoleColors.RESET);
     }
 
     public boolean isAlive() {
