@@ -14,5 +14,6 @@ public class Operações {
         // Operações
         cc.sacar(100);
         cc.depositar(500);
+        cc.sacar(10);
     }
 }

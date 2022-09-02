@@ -34,17 +34,17 @@ class App(Tk):
         self.geometry(f"{App.D_GUI[0]}x{App.D_GUI[1]}") # Modifica resolução
         self.resizable(False,False)                     # Bloqueia o resize
         self.configure(background=App.cinza_escuro)     # Modifica cor do backgroud
-        self.iconbitmap('Projeto - Dashboard\\image\\porco.ico')    # Modifica o ícone
+        self.iconbitmap('PaftPucPR\\Projeto - Dashboard\\image\\porco.ico')    # Modifica o ícone
         dark_title_bar(self)                            # Modifica o tema da title bar para dark
 
         # Imagens
-        self.img_port_inact      = PhotoImage(file='Projeto - Dashboard\\image\\aba buttons\\port_inactive.png')    # Botão do portfólio
-        self.img_transac_inact   = PhotoImage(file='Projeto - Dashboard\\image\\aba buttons\\transac_inactive.png') # Botão do transações
-        self.img_cot_inact       = PhotoImage(file='Projeto - Dashboard\\image\\aba buttons\\cot_inactive.png')     # Botão do cotações
-        self.img_atualizar_cot   = PhotoImage(file='Projeto - Dashboard\\image\\aba buttons\\atualizar_cot.png')
-        self.img_logo            = PhotoImage(file='Projeto - Dashboard\\image\\Logo.png')                          # Logo da GipeTech
-        self.img_layout_porfolio = PhotoImage(file='Projeto - Dashboard\\image\\layouts\\Portfólio Layout.png')
-        self.img_layout_cotacoes = PhotoImage(file='Projeto - Dashboard\\image\\layouts\\Cotações Layout.png')
+        self.img_port_inact      = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\aba buttons\\port_inactive.png')    # Botão do portfólio
+        self.img_transac_inact   = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\aba buttons\\transac_inactive.png') # Botão do transações
+        self.img_cot_inact       = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\aba buttons\\cot_inactive.png')     # Botão do cotações
+        self.img_atualizar_cot   = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\aba buttons\\atualizar_cot.png')
+        self.img_logo            = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\Logo.png')                          # Logo da GipeTech
+        self.img_layout_porfolio = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\layouts\\Portfólio Layout.png')
+        self.img_layout_cotacoes = PhotoImage(file='PaftPucPR\\Projeto - Dashboard\\image\\layouts\\Cotações Layout.png')
 
         #### Frames - Inicialização
         self.abas   = Frame(self, width=App.D_ABAS[0],   height=App.D_ABAS[1],   bg=App.cinza_claro)  # Frame à esquerda com as abas disponíveis
