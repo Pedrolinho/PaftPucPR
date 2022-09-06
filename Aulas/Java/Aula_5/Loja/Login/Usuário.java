@@ -6,12 +6,13 @@ import PaftPucPR.Aulas.Java.Aula_5.Loja.Sistema.Sistema;
 
 public class Usuário {
     public static Scanner in = new Scanner(System.in);
+    Login login = new Login();
 
-    public static Usuário Administrador = new Usuário("admin", "admin");
-
+    // Atributos
     private String CPF;
     private String Senha;
 
+    // Construtor
     public Usuário(String cpf, String senha){
         this.CPF = cpf;
         this.Senha = senha;
@@ -24,9 +25,6 @@ public class Usuário {
     public String getSenha() {
         return Senha;
     }
-    public Usuário getAdministrador() {
-        return Administrador;
-    }
 
     // Setters
     public void setCPF(String cpf) {
@@ -37,18 +35,17 @@ public class Usuário {
     }
 
     // Módulos
-    public Usuário criarUsuário(){
+    void criarUsuário(){
         System.out.println("Digite o CPF:");
         String cpf = in.nextLine();
         System.out.println("Digite a senha:");
         String senha = in.nextLine();
-        return new Usuário(cpf, senha);
+        login.adicionarUsuário();
     }
 
     public static boolean validarUsuário(String cpf, String usuário){
-        boolean validação = false;
-        for(Usuário x : Sistema.getUsers()){
-            if(x.getCPF() == cpf){
+        boolean validação = false;getUsers()){
+            if(getCPF() == cpf){
                 validação = true;
                 return validação;
             }
