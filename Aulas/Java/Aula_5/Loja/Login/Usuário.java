@@ -1,21 +1,16 @@
 package PaftPucPR.Aulas.Java.Aula_5.Loja.Login;
 
-import java.util.Scanner;
-
-import PaftPucPR.Aulas.Java.Aula_5.Loja.Sistema.Sistema;
-
 public class Usuário {
-    public static Scanner in = new Scanner(System.in);
-    Login login = new Login();
-
     // Atributos
     private String CPF;
     private String Senha;
+    private Boolean userVálido;
 
     // Construtor
     public Usuário(String cpf, String senha){
         this.CPF = cpf;
         this.Senha = senha;
+        this.userVálido = false;
     }
 
     // Getters
@@ -25,6 +20,9 @@ public class Usuário {
     public String getSenha() {
         return Senha;
     }
+    public Boolean getVálido() {
+        return userVálido;
+    }
 
     // Setters
     public void setCPF(String cpf) {
@@ -33,23 +31,15 @@ public class Usuário {
     public void setSenha(String senha) {
         Senha = senha;
     }
-
-    // Módulos
-    void criarUsuário(){
-        System.out.println("Digite o CPF:");
-        String cpf = in.nextLine();
-        System.out.println("Digite a senha:");
-        String senha = in.nextLine();
-        login.adicionarUsuário();
+    public void setVálido(Boolean válido) {
+        this.userVálido = válido;
     }
 
-    public static boolean validarUsuário(String cpf, String usuário){
-        boolean validação = false;getUsers()){
-            if(getCPF() == cpf){
-                validação = true;
-                return validação;
-            }
-        }
-        return validação;
+    // Módulos
+    public void validarCPF(Usuário x){
+
+    }
+    public void validarSenha(Usuário x){
+
     }
 }
