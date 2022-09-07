@@ -33,12 +33,12 @@ public class Pasta {
     }
 
     // Métodos
-    void adicionarArquivo(String nome, String extensão, int tamanho){
+    public void adicionarArquivo(String nome, String extensão, int tamanho){
         Arquivo x = new Arquivo(nome, extensão, tamanho);
         arquivos.add(x);
     }
     
-    void adicionarPasta(Pasta x, String nome){
+    public void adicionarPasta(Pasta x, String nome){
         if(nome != null){
             Pasta z = new Pasta(nome);
             pastas.add(z);
@@ -47,7 +47,7 @@ public class Pasta {
         pastas.add(x);
     }
 
-    void excluir(String nome, Boolean subpastas){ // Exclui arquivos
+    public void excluir(String nome, Boolean subpastas){ // Exclui arquivos
         int y = 0;
         for(Arquivo x : getArquivos()){
             if(x.getNome() == nome){
@@ -72,7 +72,7 @@ public class Pasta {
         }
     }
 
-    void tamanho(){ // Mostra tamanho dos arquivos presentes na pasta, excluindo subpastas
+    public void tamanho(){ // Mostra tamanho dos arquivos presentes na pasta, excluindo subpastas
         int tamanho = 0;
         for(Arquivo x: arquivos){
             tamanho += x.getTamanho();
@@ -80,7 +80,7 @@ public class Pasta {
         System.out.println("Tamanho Total: " + tamanho + "B");
     }
     
-    void tamanhoTotal(){ // Mostra tamanho dos arquivos presentes na pasta, incluindo subpastas
+    public void tamanhoTotal(){ // Mostra tamanho dos arquivos presentes na pasta, incluindo subpastas
         int tamanhoTotal = 0;
         for(Arquivo x: arquivos){
             tamanhoTotal += x.getTamanho();

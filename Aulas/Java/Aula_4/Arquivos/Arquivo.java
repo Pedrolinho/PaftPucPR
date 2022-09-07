@@ -2,9 +2,9 @@ package PaftPucPR.Aulas.Java.Aula_4.Arquivos;
 
 public class Arquivo {
     // Atributos
-    String nome;
-    String extensão;
-    int tamanho;
+    private String nome;
+    private String extensão;
+    private int tamanho;
 
     // Construtor
     public Arquivo(String nome, String extensão, int tamanho){
@@ -12,7 +12,6 @@ public class Arquivo {
         this.extensão = extensão;
         this.tamanho = tamanho;
     }
-
 
     // Getters
     public String getNome() {
@@ -25,8 +24,8 @@ public class Arquivo {
         return tamanho;
     }
 
-
     // To String
+    @Override
     public String toString() {
         return "Arquivo: " + nome + "." + extensão + " |  Tamanho: " + tamanho + "B";
     }

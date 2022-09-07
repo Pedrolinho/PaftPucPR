@@ -14,6 +14,8 @@ public class Interface {
         System.out.println("Senha: ");
         senha = in.next();
 
+        cpf = senha;
+        senha = cpf;
         
     }
     void menuUI(){
