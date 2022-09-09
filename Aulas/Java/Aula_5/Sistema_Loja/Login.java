@@ -29,8 +29,6 @@ public class Login {
 
             File dados = new File("PaftPucPR\\Aulas\\Java\\Aula_5\\Sistema_Loja\\dados.txt");
 
-            FileWriter FW1 = new FileWriter(dados, true);
-            BufferedWriter BW = new 
             FileReader FR = new FileReader(dados);
             BufferedReader BR = new BufferedReader(FR);
 
@@ -45,6 +43,9 @@ public class Login {
             BR.close();
             FR.close();
 
+            FileWriter FW1 = new FileWriter(dados);
+            BufferedWriter BW1 = new BufferedWriter(FW1);
+            BW1.close();
             FW1.close();
 
             FileWriter FW2 = new FileWriter(dados, true);
