@@ -34,7 +34,7 @@ public class Login {
 
             String linha = BR.readLine();
             while(linha != null){
-                if(linha.contains(" " + cpf + " ")){System.out.println("Tem");}
+                if(linha.contains("Login: " + cpf)){System.out.println("Tem");}
                 else{
                     manter.add(linha);
                 }
