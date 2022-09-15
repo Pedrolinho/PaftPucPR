@@ -1,2 +1,0 @@
-Login: nsei | Senha: nsei
-Login: nsei2 | Senha: nsei2

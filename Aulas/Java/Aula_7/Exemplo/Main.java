@@ -27,17 +27,6 @@ public class Main {
         alunos.add(new Aluno("Lucas", 30));
         alunos.add(new Aluno("Mariana", 21));
 
-        for(Aluno aluno : alunos) {
-
-        }
-
-        // Classe anônima
-        for(Aluno aluno: filtrar(alunos, new CritérioFiltragem()) {
-            @Override
-            public boolean devoFiltrar(Aluno aluno) {
-                return aluno.getNome().toUpperCase().startsWith("A");
-            }
-        }
     }
     
 }
