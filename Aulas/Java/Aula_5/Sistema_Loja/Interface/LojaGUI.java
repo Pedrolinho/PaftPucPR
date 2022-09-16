@@ -52,7 +52,6 @@ public class LojaGUI extends JFrame {
         JLabel iniciar = new JLabel();
 
         // Botões atribuitos ao label principal
-        JButton criarconta = new JButton();
         JButton fechar = new JButton();
 
         // Botão Iniciar Sessão
@@ -66,22 +65,13 @@ public class LojaGUI extends JFrame {
         iniciar.add(iniciarsessão.getBotão());
 
         // Botão Criar Conta
-        Botão criarconta = new Botão(imagePath, posX, posY, scaleX, scaleY)
-        criarconta.addMouseListener(new java.awt.event.MouseAdapter() {
+        Botão criarconta = new Botão(imagens.getCriarConta(), 31, 545, 328, 60);
+        criarconta.getBotão().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 criarConta1MouseReleased(evt, iniciar);
             }
         });
-        criarconta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        criarconta.setOpaque(false);
-        criarconta.setFocusPainted(false);
-        criarconta.setBorderPainted(false);
-        criarconta.setContentAreaFilled(false);
-        //criarconta.setBackground(new java.awt.Color(168, 188, 189));
-        criarconta.setIcon(new ImageIcon("PaftPucPR/Aulas/Java/Aula_5/Sistema_Loja/Interface//Images/Button Criar Conta.png"));
-        criarconta.setBorder(null);
-        iniciar.add(criarconta);
-        criarconta.setBounds(31, 545, 328, 60);
+        iniciar.add(criarconta.getBotão());
 
         // Botão Fechar Sistema
         fechar.addMouseListener(new java.awt.event.MouseAdapter() {
