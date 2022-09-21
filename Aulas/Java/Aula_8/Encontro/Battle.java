@@ -21,8 +21,9 @@ public class Battle {
         Char monster2 = Char.createGoblin();
         Char monster3 = Char.createGoblin();
         Char hero4 = new Char("Kratos", 5, 5, 500, new Potion(0));
-        hero4.setWeapon(new Weapon("", damage));
+        hero4.setWeapon(new Weapon("Garfo", new DiceRoll(1, 0, 1)));
         desafiantes.add(hero1);desafiantes.add(hero2);desafiantes.add(hero3);
+        desafiados.add(hero4);desafiados.add(monster1);desafiados.add(monster2);desafiados.add(monster3);
 
         Char monster = Char.createGoblin();
 

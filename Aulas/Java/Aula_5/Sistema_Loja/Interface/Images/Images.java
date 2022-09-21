@@ -17,7 +17,18 @@ private String Avançar = "PaftPucPR/Aulas/Java/Aula_5/Sistema_Loja/Interface/Im
 private String Voltar = "PaftPucPR/Aulas/Java/Aula_5/Sistema_Loja/Interface/Images/Button Voltar.png";
 
 
-
+public String getAvançar() {
+    return Avançar;
+}
+public String getCadastro1() {
+    return Cadastro1;
+}
+public String getCadastro2() {
+    return Cadastro2;
+}
+public String getVoltar() {
+    return Voltar;
+}
 public String getIniciarSessão() {
     return IniciarSessão;
 }
