@@ -13,7 +13,7 @@ console.log("Nome: " + nome + "; Idade: " + idade + "; Humano: " + humano)
 console.log(`Nome: ${nome}; Idade: ${idade}; Humano: ${humano}`)
 
 console.log(parseInt(nome)) // Converte texto em int
-console.log(parseFloat(nome)) // Converte texto em float
+console.log(parseFloat(idade)) // Converte texto em float
 console.log(nome.toUpperCase()) // Converte o texto em letras maiúsculas
 console.log(nome.toLowerCase()) // Converte o texto em letras minúsculass
 console.log(nome.length) // Retorna o tamanho do texto incluindo espaços
