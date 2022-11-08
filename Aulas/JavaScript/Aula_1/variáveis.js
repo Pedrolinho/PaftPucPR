@@ -1,5 +1,5 @@
-/* const -> usado para strings ou boolean */
-/* let   -> usado para números */
+/* const -> usado para variáveis constantes */
+/* let   -> usado para variáveis não constantes */
 
 /* No JavaScript não é necessário o uso do ponto-e-vírgula (;) */
 const nome = "Pedro"
